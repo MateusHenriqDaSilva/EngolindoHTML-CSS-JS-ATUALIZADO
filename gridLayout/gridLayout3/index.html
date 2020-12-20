@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            display: inline-grid;
+            grid-gap: 10px;
+            /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+            /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+            /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+            grid-template-columns: [left-start] 200px [left-end center-start] 200px [center-end right-start] 200px [right-end];
+            grid-template-rows: [top-start] 200px [top-end middle-start] 200px [middle-end bottom-start] 200px [bottom-end];
+            background-color: white;
+            color: white;
+            grid-template-areas: 'one two three' 'four five six' 'seven eight nine';
+        }
+        
+        [class^='grid-item'] {
+            font-size: 100px;
+            font-weight: bold;
+            outline: 3px #f90 dashed;
+            display: grid;
+            background-color: goldenrod;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .grid-item1 {
+            grid-area: five;
+        }
+        
+        .grid-item2 {
+            grid-area: nine;
+        }
+        
+        .grid-item3 {
+            grid-area: one;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <div class="grid-item1">1</div>
+        <div class="grid-item2">2</div>
+        <div class="grid-item3">3</div>
+
+        <div class="grid-item4">4</div>
+        <div class="grid-item5">5</div>
+        <div class="grid-item6">6</div>
+
+        <div class="grid-item7">7</div>
+        <div class="grid-item8">8</div>
+        <div class="grid-item9">9</div>
+    </div>
+</body>
+
+</html>

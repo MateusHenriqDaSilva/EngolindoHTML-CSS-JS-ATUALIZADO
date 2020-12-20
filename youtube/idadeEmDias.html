@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .container-1,
+        .container-2,
+        .container-3,
+        .container-4,
+        .container-5 {
+            border: 1px solid black;
+            margin: 0 auto;
+            width: 75%;
+            text-align: center;
+        }
+
+        .flexBox-container-1,
+        .flexBox-container-2,
+        .flexBoxJogo,
+        .flexBoxPegarCor,
+        .vinteUmLinha1,
+        .vinteUmLinha2,
+        .vinteUmLinha3 {
+            display: flex;
+            border: 1px solid black;
+            padding: 10px;
+            justify-content: space-around;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .vinteUmLinha1,
+        .vinteUmLinha2 {
+            background: url('intro.jpg') center;
+            color: white;
+        }
+
+
+        .vinteUmLinha1 div {
+            border: 1px solid black;
+            padding: 10px;
+            height: 350px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .vinteUmLinha1 img {
+            width: 25%;
+            padding: 10px;
+        }
+
+        .flexBox-container-1 div {
+            display: flex;
+            padding: 10px;
+            border: 1px solid black;
+            align-items: center;
+        }
+
+        .vinteUmLinha2 button {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .vinteUmLinha2 div {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        table,
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid black
+        }
+
+        .flexBox-container-2 {
+            display: flex;
+
+        }
+
+        .flexBox-container-2 img {
+            padding: 10px;
+            box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.7);
+        }
+
+        .flexBoxJogo img:hover {
+            box-shadow: 0px 10px 50px green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-1">
+        <h1>idades em dias</h1>
+        <div class="flexBox-container-1">
+            <div>
+                <button class="btn btn-primary" onclick="idadeEmDias()">clique aqui</button>
+            </div>
+            <div>
+                <button class="btn btn-danger" onclick="resetar()">resetar</button>
+            </div>
+        </div>
+        <div class="flexBox-container-1">
+            <div id="flex-box-resultado"></div>
+        </div>
+    </div>
+    <div class="container-2">
+        <h1>gerador de gato</h1>
+        <button class="btn btn-success" id="geradorBotao" onclick="gerador()">gerador de gato</button>
+
+        <div class="flexBox-container-2" id="flexGatos">
+
+        </div>
+    </div>
+
+    <div class="container-3">
+        <h1>pedra,papel,tisoura</h1>
+        <div class="flexBoxJogo" id="jogo">
+            <img id="pedra" src="pedra.png" alt="pedra" height="150" width="150" onclick="game(this)">
+            <img id="papel" src="papel.jpg" alt="papel" height="150" width="150" onclick="game(this)">
+            <img id="tesoura" src="tisoura.jpg" alt="tisoura" height="150" width="150" onclick="game(this)">
+        </div>
+    </div>
+
+    <div class="container-4">
+        <h1 id="mudarDeCor">mudar cor de todos os botoes</h1>
+        <div class="flexBoxPegarCor">
+            <form action="">
+                <select name="cores" id="cores" onchange="botaoTrocarCor(this)">
+                    <option value="random">random</option>
+                    <option value="red">red</option>
+                    <option value="green">green</option>
+                    <option value="reset">reset</option>
+                </select>
+            </form>
+            <button class="btn btn-primary">orkut</button>
+            <button class="btn btn-danger">yahoo!</button>
+            <button class="btn btn-warning">google</button>
+            <button class="btn btn-success">facebook</button>
+        </div>
+    </div>
+
+    <div class="container-5">
+        <h1>jogo do 21</h1>
+        <h3><span id="vinteUmResultado">Vinte um</span></h3>
+
+        <div class="vinteUmLinha1">
+            <div id="humanCaixa">
+                <h2>Voce: <span id="humanResultado">0</span></h2>
+            </div>
+            <div id="botCaixa">
+                <h2>adversario: <span id="botResultado">0</span></h2>
+            </div>
+        </div>
+        <div class="vinteUmLinha2">
+            <div>
+                <button class="btn-lg btn-primary mr-2" id="vinteUmHumanBotao">Jogar</button>
+                <button class="btn-lg btn-warning mr-2" id="vinteUmBotBotao">Oponente</button>
+                <button class="btn-lg btn-danger mr-2" id="vinteUmLimparBotao">Limpar</button>
+            </div>
+        </div>
+
+        <div class="vinteUmLinha3">
+            <table>
+                <tr>
+                    <th>Vencedor</th>
+                    <th>Derrota</th>
+                    <th>Empate</th>
+                </tr>
+                <tr>
+                    <td><span id="venceu">0</span></td>
+                    <td><span id="derrota">0</span></td>
+                    <td><span id="empate">0</span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    //idade em dias
+    function idadeEmDias() {
+        var ano = prompt("quantos anos voce tem?")
+        var idadeEmDias = ((2020 - ano) * 365);
+        var h1 = document.createElement('h1')
+        var componenteTexto = document.createTextNode('sua idade ' + idadeEmDias + ' dias')
+        h1.setAttribute('id', 'idadeEmDias')
+        h1.appendChild(componenteTexto)
+        document.getElementById('flex-box-resultado').appendChild(h1)
+    }
+
+    function resetar() {
+        document.getElementById('idadeEmDias').remove()
+    }
+    //cat
+    function gerador() {
+        var image = document.createElement('img')
+        var div = document.getElementById('flexGatos')
+        image.src = "https://thecatapi.com/api/images/get?format=src&type=gif&size=small"
+        div.appendChild(image)
+    }
+    //pedra papel tisoura
+    function game(jogada) {
+        var humanJogada, botJogada;
+        humanJogada = jogada.id
+        botJogada = numeroRobnt(randomBot())
+        let resultado = decisao(humanJogada, botJogada)
+        message = finalMessage(resultado)
+        desenhandoTela(jogada.id, botJogada, message)
+    }
+
+    function randomBot() {
+        return Math.floor(Math.random() * 3)
+    }
+
+    function numeroRobnt(number) {
+        return ['pedra', 'papel', 'tesoura'][number]
+    }
+
+    function decisao(decisaoHuman, decisaoBot) {
+        var respostaData = {
+            'pedra': { 'tesoura': 1, 'pedra': 0.5, 'papel': 0 },
+            'papel': { 'pedra': 1, 'papel': 0.5, 'tesoura': 0 },
+            'tesoura': { 'papel': 1, 'tesoura': 0.5, 'pedra': 0 },
+        }
+        var resultadoHuman = respostaData[decisaoHuman][decisaoBot]
+        var resultadoBot = respostaData[decisaoBot][decisaoHuman]
+
+        return [resultadoHuman, resultadoBot]
+    }
+
+    function finalMessage([resultadoHuman, resultadoBot]) {
+        if (resultadoHuman === 0) {
+            return { 'message': 'voce perdeu', 'color': 'red' }
+        } else if (resultadoHuman === 0.5) {
+            return { 'message': 'voce empatou', 'color': 'yellow' }
+        } else {
+            return { 'message': 'voce ganhou', 'color': 'green' }
+        }
+    }
+
+    function desenhandoTela(humanImagem, botImage, finalMessage) {
+        var imageData = {
+            'pedra': document.getElementById('pedra').src,
+            'papel': document.getElementById('papel').src,
+            'tesoura': document.getElementById('tesoura').src,
+        }
+
+        document.getElementById('pedra').remove()
+        document.getElementById('papel').remove()
+        document.getElementById('tesoura').remove()
+
+        var campoJogo = document.getElementById('jogo')
+
+        var humanDiv = document.createElement('div')
+        var botDiv = document.createElement('div')
+        var messageDiv = document.createElement('div')
+
+        humanDiv.innerHTML = "<img src='" + imageData[humanImagem] + "'height=150px width=150 style='box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);'>'"
+        messageDiv.innerHTML = "<h1 style='color: " + finalMessage['color'] + "; font-size: 60px; padding: 30px; '>" + finalMessage['message'] + "</h1>"
+        botDiv.innerHTML = "<img src='" + imageData[botImage] + "'height=150px width=150 style='box-shadow: 0px 10px 50px rgba(37, 50, 233, 1);'>'"
+
+        campoJogo.appendChild(humanDiv)
+        campoJogo.appendChild(messageDiv)
+        campoJogo.appendChild(botDiv)
+    }
+    //mudar cor dos butoes
+
+    var todosBotao = document.getElementsByTagName('button')
+    var selecao = document.getElementById('cores')
+
+    var copiaDeTodosBotao = []
+
+    for (let botao of todosBotao) {
+        copiaDeTodosBotao.push(botao.classList[1])
+    }
+    function botaoTrocarCor(selecao) {
+        if (selecao.value === 'red') {
+            buttonsRed()
+        } else if (selecao.value === 'green') {
+            buttonsGreen()
+        } else if (selecao.value === 'reset') {
+            buttonCorReset()
+        } else if (selecao.value === 'random') {
+            buttonRandom()
+        }
+    }
+
+    // function buttonsRed() {
+    //     for(let contador = 0; contador < todosBotao.length; contador++) {
+    //         todosBotao[contador].classList.remove(todosBotao[contador].classList[1])
+    //         todosBotao[contador].classList.add('btn-danger')
+    //     }
+    // }
+
+    function buttonsRed() {
+        for (let botao of todosBotao) {
+            botao.classList.remove(botao.classList[1])
+            botao.classList.add('btn-danger')
+        }
+    }
+
+    function buttonsGreen() {
+        for (let botao of todosBotao) {
+            botao.classList.remove(botao.classList[1])
+            botao.classList.add('btn-success')
+        }
+    }
+
+    function buttonCorReset() {
+        for (let contador = 0; contador < todosBotao.length; contador++) {
+            todosBotao[contador].classList.remove(todosBotao[contador].classList[1])
+            todosBotao[contador].classList.add(copiaDeTodosBotao[contador])
+        }
+    }
+
+    function buttonRandom() {
+        botoesCor = ['btn-primary', 'btn-success', 'btn-danger', 'btn-warning']
+
+        for (let contador = 0; contador < todosBotao.length; contador++) {
+            var randomNumero = Math.floor(Math.random(contador) * 4)
+            todosBotao[contador].classList.remove(todosBotao[contador].classList[1])
+            todosBotao[contador].classList.add(botoesCor[randomNumero])
+        }
+    }
+
+    //jogoVinteUm
+
+    let vinteUmJogo = {
+        'voce': { 'placarSpan': '#humanResultado', 'div': '#humanCaixa', 'placar': 0 },
+        'bot': { 'placarSpan': '#botResultado', 'div': '#botCaixa', 'placar': 0 },
+        'cartas': ['2','3','4','5','6','7','8','9','10','K', 'J', 'Q', 'A'],
+        'cartasValor': {'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'9': 9,'10': 10,'K': 10, 'J': 10, 'Q': 10, 'A': 10}
+    }
+
+    const voce = vinteUmJogo['voce']
+    const bot = vinteUmJogo['bot']
+    const cartas = vinteUmJogo['cartas']
+
+    const hitSon = new Audio('sons/swish.m4a')
+
+    document.querySelector('#vinteUmHumanBotao').addEventListener('click', () => {
+        let carta = cartaRandom()
+        mostrarCarta(carta,voce)
+    })
+
+    document.querySelector('#vinteUmBotBotao').addEventListener('click', () => {
+        let carta = cartaRandom()
+        mostrarCarta(carta,bot)
+    })
+
+    document.querySelector('#vinteUmLimparBotao').addEventListener('click', () => {
+        limparBotao(bot)
+    })
+
+    function mostrarCarta(carta,activeHuman, activeBot) {
+        let cartaImage = document.createElement('img')
+        cartaImage.src = `img/${carta}.png`;
+        document.querySelector(activeHuman['div']).appendChild(cartaImage)
+        hitSon.play()
+    }
+
+    function limparBotao(){
+        let voceImages = document.querySelector('#humanCaixa').querySelectorAll('img')
+        let botImages = document.querySelector('#botCaixa').querySelectorAll('img')
+        for(let image of voceImages) {
+            image.remove()
+        }
+        for(let image of botImages) {
+            image.remove()
+        }
+    }
+
+    function cartaRandom(){
+        let cartaRandomica = Math.floor(Math.random(cartas) * 13)
+        return vinteUmJogo['cartas'][cartaRandomica]
+    }
+</script>
+
+</html>

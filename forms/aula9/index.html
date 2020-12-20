@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:not([type='range']),
+        textarea {
+            min-height: 40px;
+            padding: 2px;
+            font-size: 17px;
+            border: 1px solid #ebebeb;
+            outline: none;
+            transition: transform 0.4s, box-shadow 0.4s, background-position 0.2s;
+            background: radial-gradient(400px circle, #fff 99%, transparent 99%), #f1f1f1;
+            background-position: -400px 90px, 0 0;
+            background-repeat: no-repeat, no-repeat;
+            border-radius: 0;
+            position: relative;
+        }
+        
+        input:not([type='range']):focus,
+        textarea:focus {
+            background-position: 0 0, 0 0;
+        }
+        
+        input:required+label:after {
+            content: '*';
+            font-size: 2.1em;
+            position: relative;
+            top: 6px;
+            display: inline-flex;
+            margin-left: 0.2ch;
+            transition: color 1s;
+        }
+        
+        input:required:invalid+label:after {
+            color: red;
+        }
+        
+        input:required:valid+label:after {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-Input_Wrapper">
+        <input id="film" name="film" type="text" placeholder="e.g. King Kong" required />
+        <label for="film">The film in question?</label>
+    </div>
+</body>
+
+</html>

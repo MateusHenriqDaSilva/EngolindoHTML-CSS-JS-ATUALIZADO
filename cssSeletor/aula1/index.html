@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img[alt="roupas"] {
+            border: 3px solid red;
+        }
+        
+        [data-type^="todo"] {
+            background-color: red;
+        }
+        
+        [data-ingredients*="cream"] {
+            color: red;
+        }
+        
+        [data-ingredients^="jam"] {
+            color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/ropas.jpg" alt="roupas">
+    <li data-type="todo-chore">Empty the bins</li>
+    <li data-type="todo-exercise">Play football</li>
+    <p data-ingredients="scones cream jam">Will I get selected?</p>
+    <p data-ingredients="toast jam butter">Will I get selected?</p>
+    <p data-ingredients="jam toast butter">Will I get selected?</p>
+</body>
+
+</html>

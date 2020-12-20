@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .pagina {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .cabecalho {
+            width: 100%;
+            height: 130px;
+            background-color: #038c5a;
+        }
+        
+        .corpoPagina {
+            width: 100%;
+            font-size: 0;
+        }
+        
+        .direita {
+            height: 625;
+            width: 10.41%;
+            background-color: #03a66a;
+            display: inline-block;
+        }
+        
+        .footer {
+            height: 200px;
+            width: 100%;
+            background-color: #025059;
+        }
+        
+        .esquerda {
+            height: 625px;
+            width: 200px;
+            background-color: #03a66a;
+            display: inline-block;
+            position: absolute;
+            left: -200px;
+            width: 200px;
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+        }
+        
+        @media (min-width: 40rem) {
+            .esqueda {
+                width: 20.83%;
+                left: 0;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pagina">
+        <header class="cabecalho"></header>
+        <div class="corpoPagina">
+            <aside class="esqueda"></aside>
+            <main class="meioPagina"></main>
+            <aside class="direita"></aside>
+        </div>
+        <footer class="footer"></footer>
+    </div>
+</body>
+
+</html>

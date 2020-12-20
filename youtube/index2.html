@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        .conteudo {
+            font-family: 'Indie Flower', cursive;
+            padding: 20px 0px 0px 40px;
+            max-width: 500px;
+            margin: auto;
+            line-height: 2.3rem;
+        }
+
+        form {
+            margin: 20px 0px 40px;
+        }
+
+        h1 {
+            position: absolute;
+            margin-left: 30px;
+            font-size: 35px;
+            margin-top: 20px;
+            color: white;
+        }
+
+        img {
+            border-radius: 30px;
+            box-shadow: 10px 10px 30px black;
+        }
+
+        .texto {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        text {
+            color: red;
+            font-style: italic;
+        }
+
+        button {
+            padding: 19;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-color: black;
+            box-shadow: 3px 1px 1px 1px black;
+            height: 30px;
+            width: 100px;
+        }
+
+        button:hover {
+            box-shadow: 0px 0px 0px 0px black;
+        }
+
+        input {
+            color: black;
+            font-family: 'Indie Flower', cursive;
+            height: 30px;
+            width: 300px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navegacao li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            justify-content: space-between;
+        }
+
+        ul {
+            display: flex;
+            list-style: none;
+            background-color: black;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: rgb(93, 88, 88);
+        }
+
+        .active{
+            background-color: red;
+        }
+
+        footer{
+            background-color: black;
+            color: white;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            flex: 1
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navegacao">
+        <ul>
+            <li class="active"><a href="#">inicio</a></li>
+            <li><a href="#">blog</a></li>
+            <li><a href="#">participe</a></li>
+            <li><a href="#">sair</a></li>
+        </ul>
+    </div>
+
+    <div class="conteudo">
+        <h1>como vamos mudar o mundo?</h1>
+        <img src="humano.jpg" alt="humano" height="300" width="500">
+        <div class="texto">
+            Tudo hoje pode <text>mudar em questao</text> de segundo,
+            nossas vidas <text>estao na mao do destino</text> , ou a um deus
+            comandando nossa realidade,
+            o amor vem da onde? a uma fonte que controla o mundo ?
+        </div>
+        <form action="">
+            <input type="email" placeholder="digite seu email">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+<footer>
+    final da pagina
+</footer>
+</body>
+
+</html>

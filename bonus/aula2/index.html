@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Scroll_Wrapper {
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+        }
+        
+        .Scroll_Wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .Item {
+            display: inline-flex;
+        }
+        
+        .Scroll_Wrapper {
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            /*Remove the scrollbars in supporting versions of older IE*/
+            -ms-overflow-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="Scroll_Wrapper">
+        <figure class="Item">
+            <img src="img/intro.jpg" alt="Movie poster of Guardians of the Galaxy" />
+            <figcaption class="Caption">Guardians of the Galaxy</figcaption>
+        </figure>
+    </nav>
+</body>
+
+</html>

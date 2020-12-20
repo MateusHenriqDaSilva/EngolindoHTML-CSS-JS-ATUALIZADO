@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flipper {
+            perspective: 400px;
+            position: relative;
+        }
+        
+        .flipper-objeto {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+        }
+        
+        .painel {
+            top: 0;
+            position: absolute;
+            backface-visibility: hidden;
+            background-color: red;
+        }
+        
+        .flipper-vertical .costa {
+            transform: rotateX(180deg)
+        }
+        
+        .flipper-horizontal .costa {
+            transform: rotateY(180deg);
+        }
+        
+        .flipper:hover .flipper-vertical {
+            transform: rotateX(180deg);
+            animation: pulse 1s 1s infinite alternate bolth;
+        }
+        
+        .flipper:hover .flipper-horizontal {
+            transform: rotateY(180deg);
+            animation: pulse 1s 1s infinite alternate both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flipper">
+        <span class="flipper-objeto flipper-vertical">
+            <span class="painel frente">frente</span>
+        <span class="painel costa">costa</span>
+        </span>
+    </div>
+</body>
+
+</html>

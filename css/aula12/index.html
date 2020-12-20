@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            background-color: indigo;
+            display: flex;
+            flex-direction: column;
+            color: black;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+        
+        .flexItem {
+            display: flex;
+            align-items: center;
+            min-height: 6.25rem;
+            padding: 1rem;
+            align-items: center;
+        }
+        
+        .cabecalho {
+            background-color: #105b63;
+            order: 1;
+        }
+        
+        .corpo {
+            background-color: #fffad5;
+            order: 2;
+        }
+        
+        .conteudo1 {
+            background-color: #ffd34e;
+            order: 3;
+        }
+        
+        .conteudo2 {
+            background-color: #db9e36;
+            order: 4;
+        }
+        
+        .rodape {
+            background-color: #bd4932;
+            order: 5;
+        }
+        
+        @media (min-width: 30rem) {
+            .flex {
+                flex-flow: row wrap;
+            }
+            .cabecalho {
+                width: 100%;
+            }
+            .corpo {
+                flex: 1 0 auto;
+                order: 3;
+            }
+            .conteudo1 {
+                width: 150px;
+                order: 2;
+            }
+            .conteudo2 {
+                width: 150px;
+                order: 4;
+            }
+            .rodape {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <div class="flexItem cabecalho">
+            aqui encontra-se o cabecalho da pagina
+        </div>
+        <div class="flexItem conteudo1">
+            aqui encontra-se o corpo conteudo 1 da pagina
+        </div>
+        <div class="flexItem corpo">
+            aqui encontra-se o corpo da pagina
+        </div>
+        <div class="flexItem conteudo2">
+            aqui encontra-se o corpo do conteudo 2 da pagina
+        </div>
+        <div class="flexItem rodape">
+            aqui encontra-se o rodape da pagina
+        </div>
+    </div>
+</body>
+
+</html>

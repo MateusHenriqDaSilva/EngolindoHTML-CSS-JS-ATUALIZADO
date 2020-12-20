@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .one+.item {
+            border: 3px dashed #f90;
+        } */
+        
+        .item:nth-child(3)~.item {
+            border: 3px dashed #f90;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item one">one</div>
+    <div class="item">two</div>
+    <div class="item">three</div>
+    <div class="item">four</div>
+    <div class="item">five</div>
+    <div class="item">six</div>
+</body>
+
+</html>
